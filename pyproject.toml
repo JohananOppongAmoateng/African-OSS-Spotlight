@@ -1,0 +1,12 @@
+[project]
+name = "african-oss-spotlight"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "django>=5.2.9",
+    "django-tailwind[cookiecutter,honcho,reload]>=4.4.1",
+    "faker>=38.2.0",
+    "pillow>=12.0.0",
+]
