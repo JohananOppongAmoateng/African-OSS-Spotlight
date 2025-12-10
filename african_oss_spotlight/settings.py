@@ -26,12 +26,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-_w&gwywy6il+my1nf+qo3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',') if os.environ.get('ALLOWED_HOSTS') else []
+ALLOWED_HOSTS = ["https://african-oss-spotlight.onrender.com"]
 
-# CSRF trusted origins for production
-CSRF_TRUSTED_ORIGINS = [
-    f'https://{host}' for host in ALLOWED_HOSTS if host and not host.startswith('localhost')
-]
 
 
 # Application definition
