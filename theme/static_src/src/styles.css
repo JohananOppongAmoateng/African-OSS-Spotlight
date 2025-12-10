@@ -1,0 +1,226 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+
+
+/* src/styles/tailwind-theme.css */
+
+
+/* ---------------------------
+   Fonts (keep outside @theme)
+   --------------------------- */
+@font-face {
+  font-family: "Geist";
+  src: url("https://assets.vercel.com/raw/upload/v1687593259/geist/fonts/geist-sans/Geist-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist";
+  src: url("https://assets.vercel.com/raw/upload/v1687593259/geist/fonts/geist-sans/Geist-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist";
+  src: url("https://assets.vercel.com/raw/upload/v1687593259/geist/fonts/geist-sans/Geist-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist";
+  src: url("https://assets.vercel.com/raw/upload/v1687593259/geist/fonts/geist-sans/Geist-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* material symbols tuning (optional; leave as-is) */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
+@theme {
+  /* font token (Tailwind v4 will expose font utilities mapped to --font-* tokens) */
+  --font-display: "Geist", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+
+  /* colors */
+  --color-primary-red: #D62612;
+  --color-primary-green: #00843D;
+  --color-primary-yellow: #FDDF00;
+  --color-primary-black: #000000;
+  --text-main: #181411;
+  --text-subtle: #6b7280;
+  --border-color: #e5e7eb;
+
+  --background-light: #F8F7F5;
+  --background-dark: #121212;
+
+  --text-light: #1C1C1A;
+  --text-dark: #F8F7F5;
+
+  --text-muted-light: #555553;
+  --text-muted-dark: #A5A5A3;
+
+
+  /* pattern image (exposed as a var) */
+  --pattern-bg-url: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCBHFWwPz9nUjOfbZB1bJg8fT3gOmRzo4En_yF7SfU182UgNbejKIK8H-iOBqsVW9ZxAcZIyQ-TdFEA90izjDQPKHniCmc5nqWWO4wPRsL17ZF6Ouuq4h2iAJ9QYPKIExwEp7O66QU-rfxQm9GSzCL8pIWjj-r6CEMu6N4uUvQFVY2MrRk-32TlNRf6PLThVX6ql4pcsXpQoznBgop-fAcOBlKlICfAuFo5gfkA3GKF90dly502hKIrSQbMXXvFi22GukefZ4CW8Nk");
+}
+
+/* ---------------------------
+   Runtime mappings & fallbacks
+   --------------------------- */
+:root {
+  /* app-level colors */
+  --app-bg: var(--background-light);
+  --app-text: var(--text-light);
+  --app-text-muted: var(--text-muted-light);
+
+  /* fallback font stack */
+  --font-fallback: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  /* --panafrican-red: #e30a17;
+  --panafrican-green: #008751;
+  --panafrican-yellow: #fecb00;
+  --panafrican-black: #000000;
+  --background-light: #f8f7f5;
+  --background-dark: #1a1a1a; */
+}
+
+/* dark mode: toggle by adding .dark on html or body */
+.dark {
+  --app-bg: var(--background-dark);
+  --app-text: var(--text-dark);
+  --app-text-muted: var(--text-muted-dark);
+}
+
+/* ---------------------------
+   Base styles (use runtime vars)
+   --------------------------- */
+@layer base {
+
+  html,
+  body {
+    font-family: var(--font-display), var(--font-fallback);
+    background-color: var(--app-bg);
+    color: var(--app-text);
+
+
+
+
+
+    /* radii */
+    --radius-default: 0.25rem;
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-full: 9999px;
+  }
+
+  /* optional utility-like helpers (you can remove if you prefer pure utilities) */
+  .rounded-default {
+    border-radius: var(--radius-default);
+  }
+
+  .rounded-lg {
+    border-radius: var(--radius-lg);
+  }
+
+  .rounded-xl {
+    border-radius: var(--radius-xl);
+  }
+
+  .rounded-full {
+    border-radius: var(--radius-full);
+  }
+}
+
+/* ---------------------------
+   Pattern background (light/dark overlays)
+   --------------------------- */
+.pattern-bg {
+  background-image:
+    linear-gradient(rgba(248, 247, 245, 0.95), rgba(248, 247, 245, 0.95)),
+    var(--pattern-bg-url);
+  background-size: cover;
+  background-position: center;
+}
+
+.dark .pattern-bg {
+  background-image:
+    linear-gradient(rgba(18, 18, 18, 0.95), rgba(18, 18, 18, 0.95)),
+    var(--pattern-bg-url);
+}
+
+
+.text-primary-red {
+  color: var(--color-primary-red);
+}
+
+.bg-primary-red {
+  background-color: var(--color-primary-red);
+}
+
+.text-muted {
+  color: var(--app-text-muted);
+}
+
+/* Pan-African color utilities - mapped to high contrast colors */
+.text-panafrican-black {
+  color: #000000;
+}
+
+.dark .text-panafrican-black {
+  color: #ffffff;
+}
+
+.text-panafrican-green {
+  color: #00843D;
+}
+
+.bg-panafrican-green {
+  background-color: #00843D;
+}
+
+.text-panafrican-yellow {
+  color: #FDDF00;
+}
+
+.bg-panafrican-yellow {
+  background-color: #FDDF00;
+}
+
+.text-panafrican-red {
+  color: #D62612;
+}
+
+.bg-panafrican-red {
+  background-color: #D62612;
+}
+
+.border-panafrican-green {
+  border-color: #00843D;
+}
+
+.border-panafrican-yellow {
+  border-color: #FDDF00;
+}
+
+.border-panafrican-red {
+  border-color: #D62612;
+}
+
+
+/**
+  * A catch-all path to Django template files, JavaScript, and Python files
+  * that contain Tailwind CSS classes and will be scanned by Tailwind to generate the final CSS file.
+  *
+  * If your final CSS file is not being updated after code changes, you may want to broaden or narrow
+  * the scope of this path.
+  */
+@source "../../../**/*.{html,py,js}";
