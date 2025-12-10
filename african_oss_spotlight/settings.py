@@ -163,7 +163,4 @@ if DEBUG:
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-if os.name == 'nt':
-    NPM_BIN_PATH = r'C:\Program Files\nodejs\npm.cmd' # Adjust this path as necessary for your environment
-else:
-    NPM_BIN_PATH = '/usr/local/bin/npm' # Adjust this path as necessary for your environment
+NPM_BIN_PATH = '/usr/local/bin/npm' # Adjust this path as necessary for your environment
