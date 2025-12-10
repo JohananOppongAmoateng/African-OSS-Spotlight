@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-_w&gwywy6il+my1nf+qo3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ["https://african-oss-spotlight.onrender.com"]
+ALLOWED_HOSTS = ["african-oss-spotlight.onrender.com"]
 
 
 
