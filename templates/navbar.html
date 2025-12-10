@@ -1,10 +1,10 @@
 <header
     class="sticky top-0 z-20 flex items-center justify-between whitespace-nowrap border-b border-neutral-200/80 dark:border-neutral-800/80 px-4 sm:px-6 lg:px-10 py-3 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-sm">
-    <div class="flex items-center gap-8">
+    <div class="flex items-center gap-4 sm:gap-8">
         <div class="flex items-center gap-3 text-primary-black dark:text-white">
-            <h2 class="text-lg font-bold tracking-[-0.015em]">African OSS Spotlight</h2>
+            <h2 class="text-base sm:text-lg font-bold tracking-[-0.015em]">African OSS Spotlight</h2>
         </div>
-        <nav class="hidden md:flex items-center gap-8">
+        <nav class="hidden md:flex items-center gap-6 lg:gap-8">
             <a class="text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-panafrican-green dark:hover:text-panafrican-yellow transition-colors"
                 href="{% url 'home' %}">Home</a>
             <a class="text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-panafrican-green dark:hover:text-panafrican-yellow transition-colors"
@@ -13,14 +13,78 @@
                 href="{% url 'explore-projects' %}">Projects</a>
         </nav>
     </div>
-    <div class="flex gap-3">
+
+    <!-- Desktop Buttons -->
+    <div class="hidden md:flex gap-2 lg:gap-3">
         <a href="{% url 'submit-creator' %}"
-            class="flex items-center justify-center rounded-lg px-4 py-2 text-sm font-bold bg-panafrican-green hover:bg-panafrican-green/90 text-white dark:bg-panafrican-yellow dark:text-panafrican-black dark:hover:bg-panafrican-yellow/90 transition-all shadow-sm hover:shadow-md">
-            <span>Nominate Creator</span>
+            class="flex items-center justify-center rounded-lg px-3 lg:px-4 py-2 lg:py-2.5 text-xs lg:text-sm font-bold bg-panafrican-green hover:bg-panafrican-green/90 text-white dark:bg-panafrican-yellow dark:text-panafrican-black dark:hover:bg-panafrican-yellow/90 transition-all shadow-sm hover:shadow-md">
+            <span class="hidden lg:inline">Nominate Creator</span>
+            <span class="lg:hidden">Nominate</span>
         </a>
         <a href="{% url 'submit-project' %}"
-            class="flex items-center justify-center rounded-lg px-4 py-2 text-sm font-bold border-2 border-panafrican-green text-panafrican-green hover:bg-panafrican-green/10 dark:border-panafrican-yellow dark:text-panafrican-yellow dark:hover:bg-panafrican-yellow/10 transition-all">
-            <span>Submit Project</span>
+            class="flex items-center justify-center rounded-lg px-3 lg:px-4 py-2 lg:py-2.5 text-xs lg:text-sm font-bold border-2 border-panafrican-green text-panafrican-green hover:bg-panafrican-green hover:text-white dark:border-panafrican-yellow dark:text-panafrican-yellow dark:hover:bg-panafrican-yellow dark:hover:text-panafrican-black transition-all shadow-sm">
+            <span class="hidden lg:inline">Submit Project</span>
+            <span class="lg:hidden">Submit</span>
         </a>
     </div>
+
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-button"
+        class="md:hidden p-2 text-neutral-700 dark:text-neutral-300 hover:text-panafrican-green dark:hover:text-panafrican-yellow transition-colors"
+        aria-label="Toggle menu">
+        <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+    </button>
 </header>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu"
+    class="hidden md:hidden fixed inset-0 top-[57px] z-10 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm">
+    <nav class="flex flex-col p-4 space-y-1">
+        <a class="px-4 py-3 text-base font-medium text-neutral-700 dark:text-neutral-300 hover:bg-panafrican-green/10 dark:hover:bg-panafrican-yellow/10 hover:text-panafrican-green dark:hover:text-panafrican-yellow rounded-lg transition-colors"
+            href="{% url 'home' %}">Home</a>
+        <a class="px-4 py-3 text-base font-medium text-neutral-700 dark:text-neutral-300 hover:bg-panafrican-green/10 dark:hover:bg-panafrican-yellow/10 hover:text-panafrican-green dark:hover:text-panafrican-yellow rounded-lg transition-colors"
+            href="{% url 'explore-creators' %}">Creators</a>
+        <a class="px-4 py-3 text-base font-medium text-neutral-700 dark:text-neutral-300 hover:bg-panafrican-green/10 dark:hover:bg-panafrican-yellow/10 hover:text-panafrican-green dark:hover:text-panafrican-yellow rounded-lg transition-colors"
+            href="{% url 'explore-projects' %}">Projects</a>
+
+        <div class="pt-4 space-y-2">
+            <a href="{% url 'submit-creator' %}"
+                class="flex items-center justify-center rounded-lg px-4 py-3 text-sm font-bold bg-panafrican-green hover:bg-panafrican-green/90 text-white dark:bg-panafrican-yellow dark:text-panafrican-black dark:hover:bg-panafrican-yellow/90 transition-all shadow-md">
+                Nominate Creator
+            </a>
+            <a href="{% url 'submit-project' %}"
+                class="flex items-center justify-center rounded-lg px-4 py-3 text-sm font-bold border-2 border-panafrican-green text-panafrican-green hover:bg-panafrican-green hover:text-white dark:border-panafrican-yellow dark:text-panafrican-yellow dark:hover:bg-panafrican-yellow dark:hover:text-panafrican-black transition-all shadow-sm">
+                Submit Project
+            </a>
+        </div>
+    </nav>
+</div>
+
+<script>
+    // Mobile menu toggle
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    menuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        menuIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+    });
+
+    // Close menu when clicking on a link
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+        });
+    });
+</script>

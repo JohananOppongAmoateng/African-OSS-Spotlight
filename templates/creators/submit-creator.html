@@ -4,9 +4,9 @@
     <div class="flex flex-wrap justify-between gap-4">
         <div class="flex flex-col gap-3">
             <p
-                class="text-panafrican-black dark:text-background-light text-4xl font-black leading-tight tracking-[-0.033em]">
+                class="text-panafrican-black dark:text-background-light text-2xl sm:text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">
                 Nominate a Creator</p>
-            <p class="text-text-subtle dark:text-text-subtle text-base font-normal leading-normal max-w-2xl">
+            <p class="text-text-subtle dark:text-text-subtle text-sm sm:text-base font-normal leading-normal max-w-2xl">
                 Help us discover amazing African open-source creators! Submit their profile and optionally add their
                 projects. All nominations require admin verification.
             </p>
@@ -31,181 +31,194 @@
         </div>
         {% endif %}
 
-        <div class="flex flex-col gap-6">
+        <div class="flex flex-col gap-3">
             <h2
-                class="text-panafrican-black dark:text-background-light text-xl font-bold leading-tight tracking-[-0.015em]">
+                class="text-panafrican-black dark:text-background-light text-lg sm:text-xl font-bold leading-tight tracking-[-0.015em]">
                 Creator Information</h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 <label class="flex flex-col min-w-40 flex-1">
                     <p
-                        class="text-panafrican-black dark:text-background-light text-base font-medium leading-normal pb-2">
-                        {{ form.name.label }}</p>
+                        class="text-panafrican-black dark:text-background-light text-sm sm:text-base font-medium leading-normal pb-2">
+                        Name <span class="text-red-600">*</span></p>
                     {{ form.name }}
                     {% if form.name.errors %}
-                    <p class="text-red-600 text-sm mt-1">{{ form.name.errors.0 }}</p>
+                    <p class="text-red-600 text-xs sm:text-sm mt-1">{{ form.name.errors.0 }}</p>
                     {% endif %}
                 </label>
 
                 <label class="flex flex-col min-w-40 flex-1">
                     <p
-                        class="text-panafrican-black dark:text-background-light text-base font-medium leading-normal pb-2">
-                        {{ form.job_title.label }}</p>
-                    {{ form.job_title }}
-                    {% if form.job_title.errors %}
-                    <p class="text-red-600 text-sm mt-1">{{ form.job_title.errors.0 }}</p>
+                        class="text-panafrican-black dark:text-background-light text-sm sm:text-base font-medium leading-normal pb-2">
+                        Email <span class="text-red-600">*</span></p>
+                    {{ form.email }}
+                    {% if form.email.errors %}
+                    <p class="text-red-600 text-xs sm:text-sm mt-1">{{ form.email.errors.0 }}</p>
                     {% endif %}
                 </label>
             </div>
 
             <label class="flex flex-col min-w-40 w-full">
-                <p class="text-panafrican-black dark:text-background-light text-base font-medium leading-normal pb-2">
-                    {{ form.bio.label }}</p>
+                <p
+                    class="text-panafrican-black dark:text-background-light text-sm sm:text-base font-medium leading-normal pb-2">
+                    Bio <span class="text-red-600">*</span></p>
                 {{ form.bio }}
                 {% if form.bio.errors %}
-                <p class="text-red-600 text-sm mt-1">{{ form.bio.errors.0 }}</p>
+                <p class="text-red-600 text-xs sm:text-sm mt-1">{{ form.bio.errors.0 }}</p>
                 {% endif %}
             </label>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 <label class="flex flex-col min-w-40 flex-1">
                     <p
-                        class="text-panafrican-black dark:text-background-light text-base font-medium leading-normal pb-2">
-                        {{ form.country.label }}</p>
+                        class="text-panafrican-black dark:text-background-light text-sm sm:text-base font-medium leading-normal pb-2">
+                        Country <span class="text-red-600">*</span></p>
                     {{ form.country }}
                     {% if form.country.errors %}
-                    <p class="text-red-600 text-sm mt-1">{{ form.country.errors.0 }}</p>
+                    <p class="text-red-600 text-xs sm:text-sm mt-1">{{ form.country.errors.0 }}</p>
                     {% endif %}
                 </label>
 
                 <label class="flex flex-col min-w-40 flex-1">
                     <p
-                        class="text-panafrican-black dark:text-background-light text-base font-medium leading-normal pb-2">
-                        {{ form.website_url.label }}</p>
-                    {{ form.website_url }}
-                    {% if form.website_url.errors %}
-                    <p class="text-red-600 text-sm mt-1">{{ form.website_url.errors.0 }}</p>
+                        class="text-panafrican-black dark:text-background-light text-sm sm:text-base font-medium leading-normal pb-2">
+                        Tech Stack <span class="text-red-600">*</span></p>
+                    {{ form.tech_stack }}
+                    {% if form.tech_stack.errors %}
+                    <p class="text-red-600 text-xs sm:text-sm mt-1">{{ form.tech_stack.errors.0 }}</p>
+                    {% endif %}
+                    <p class="text-text-subtle text-xs sm:text-sm mt-1">Comma-separated (e.g., Python, Django, React)
+                    </p>
+                </label>
+            </div>
+
+            <label class="flex flex-col min-w-40 w-full">
+                <p
+                    class="text-panafrican-black dark:text-background-light text-sm sm:text-base font-medium leading-normal pb-2">
+                    GitHub URL <span class="text-red-600">*</span></p>
+                {{ form.github_url }}
+                {% if form.github_url.errors %}
+                <p class="text-red-600 text-xs sm:text-sm mt-1">{{ form.github_url.errors.0 }}</p>
+                {% endif %}
+            </label>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                <label class="flex flex-col min-w-40 flex-1">
+                    <p
+                        class="text-panafrican-black dark:text-background-light text-sm sm:text-base font-medium leading-normal pb-2">
+                        Twitter URL</p>
+                    {{ form.twitter_url }}
+                    {% if form.twitter_url.errors %}
+                    <p class="text-red-600 text-xs sm:text-sm mt-1">{{ form.twitter_url.errors.0 }}</p>
+                    {% endif %}
+                </label>
+
+                <label class="flex flex-col min-w-40 flex-1">
+                    <p
+                        class="text-panafrican-black dark:text-background-light text-sm sm:text-base font-medium leading-normal pb-2">
+                        LinkedIn URL</p>
+                    {{ form.linkedin_url }}
+                    {% if form.linkedin_url.errors %}
+                    <p class="text-red-600 text-xs sm:text-sm mt-1">{{ form.linkedin_url.errors.0 }}</p>
                     {% endif %}
                 </label>
             </div>
 
             <label class="flex flex-col min-w-40 w-full">
-                <p class="text-panafrican-black dark:text-background-light text-base font-medium leading-normal pb-2">
-                    {{ form.skills_and_interests.label }}</p>
-                {{ form.skills_and_interests }}
-                {% if form.skills_and_interests.errors %}
-                <p class="text-red-600 text-sm mt-1">{{ form.skills_and_interests.errors.0 }}</p>
-                {% endif %}
-                <p class="text-text-subtle text-sm mt-1">Comma-separated list of skills and interests</p>
-            </label>
-
-            <label class="flex flex-col min-w-40 w-full">
-                <p class="text-panafrican-black dark:text-background-light text-base font-medium leading-normal pb-2">
-                    {{ form.image.label }}</p>
+                <p
+                    class="text-panafrican-black dark:text-background-light text-sm sm:text-base font-medium leading-normal pb-2">
+                    Profile Image</p>
                 {{ form.image }}
                 {% if form.image.errors %}
-                <p class="text-red-600 text-sm mt-1">{{ form.image.errors.0 }}</p>
+                <p class="text-red-600 text-xs sm:text-sm mt-1">{{ form.image.errors.0 }}</p>
                 {% endif %}
-                <p class="text-text-subtle text-sm mt-1">Profile photo (optional)</p>
             </label>
         </div>
 
         <hr class="border-border-color/50 dark:border-panafrican-yellow/20" />
 
-        <!-- Projects Section -->
         <div class="flex flex-col gap-6">
-            <div class="flex flex-col gap-2">
-                <h2
-                    class="text-panafrican-black dark:text-background-light text-xl font-bold leading-tight tracking-[-0.015em]">
-                    Creator's Projects (Optional)</h2>
-                <p class="text-text-subtle dark:text-text-subtle text-sm">
-                    Add up to 2 projects for this creator. You can always add more projects later.
-                </p>
+            <div>
+                <h3
+                    class="text-panafrican-black dark:text-background-light text-lg sm:text-xl font-bold leading-tight tracking-[-0.015em] mb-2">
+                    Projects (Optional)</h3>
+                <p class="text-text-subtle dark:text-text-subtle text-xs sm:text-sm">Add projects associated with this
+                    creator</p>
             </div>
 
-            {{ formset.management_form }}
+            {{ project_formset.management_form }}
 
-            {% for project_form in formset %}
-            <div
-                class="p-6 rounded-lg border-2 border-border-color dark:border-panafrican-black/50 bg-white/50 dark:bg-panafrican-black/20">
-                <h3 class="text-panafrican-black dark:text-background-light text-lg font-semibold mb-4">
-                    Project {{ forloop.counter }}</h3>
+            <div id="project-forms" class="flex flex-col gap-6">
+                {% for project_form in project_formset %}
+                <div
+                    class="project-form p-4 sm:p-6 rounded-lg border border-border-color dark:border-panafrican-yellow/20 bg-white dark:bg-panafrican-black/10">
+                    <h3
+                        class="text-panafrican-black dark:text-background-light text-base sm:text-lg font-semibold mb-4">
+                        Project {{ forloop.counter }}</h3>
 
-                <div class="flex flex-col gap-4">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <label class="flex flex-col">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                        <label class="flex flex-col min-w-40 flex-1">
                             <p class="text-panafrican-black dark:text-background-light text-sm font-medium pb-2">
                                 Project Name</p>
                             {{ project_form.name }}
                             {% if project_form.name.errors %}
-                            <p class="text-red-600 text-xs mt-1">{{ project_form.name.errors.0 }}</p>
+                            <p class="text-red-600 text-xs sm:text-sm mt-1">{{ project_form.name.errors.0 }}</p>
                             {% endif %}
                         </label>
 
-                        <label class="flex flex-col">
+                        <label class="flex flex-col min-w-40 flex-1">
                             <p class="text-panafrican-black dark:text-background-light text-sm font-medium pb-2">
                                 Repository URL</p>
                             {{ project_form.repository_url }}
                             {% if project_form.repository_url.errors %}
-                            <p class="text-red-600 text-xs mt-1">{{ project_form.repository_url.errors.0 }}</p>
+                            <p class="text-red-600 text-xs sm:text-sm mt-1">{{ project_form.repository_url.errors.0 }}
+                            </p>
                             {% endif %}
                         </label>
                     </div>
 
-                    <label class="flex flex-col">
+                    <label class="flex flex-col min-w-40 w-full mt-4">
                         <p class="text-panafrican-black dark:text-background-light text-sm font-medium pb-2">
-                            Short Description</p>
+                            About</p>
                         {{ project_form.about }}
                         {% if project_form.about.errors %}
-                        <p class="text-red-600 text-xs mt-1">{{ project_form.about.errors.0 }}</p>
+                        <p class="text-red-600 text-xs sm:text-sm mt-1">{{ project_form.about.errors.0 }}</p>
                         {% endif %}
                     </label>
 
-                    <label class="flex flex-col">
-                        <p class="text-panafrican-black dark:text-background-light text-sm font-medium pb-2">
-                            Full Description</p>
-                        {{ project_form.description }}
-                        {% if project_form.description.errors %}
-                        <p class="text-red-600 text-xs mt-1">{{ project_form.description.errors.0 }}</p>
-                        {% endif %}
-                    </label>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mt-4">
+                        <label class="flex flex-col min-w-40 flex-1">
+                            <p class="text-panafrican-black dark:text-background-light text-sm font-medium pb-2">
+                                Description</p>
+                            {{ project_form.description }}
+                            {% if project_form.description.errors %}
+                            <p class="text-red-600 text-xs sm:text-sm mt-1">{{ project_form.description.errors.0 }}</p>
+                            {% endif %}
+                        </label>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <label class="flex flex-col">
+                        <label class="flex flex-col min-w-40 flex-1">
                             <p class="text-panafrican-black dark:text-background-light text-sm font-medium pb-2">
                                 Tech Stack</p>
                             {{ project_form.tech_stack }}
                             {% if project_form.tech_stack.errors %}
-                            <p class="text-red-600 text-xs mt-1">{{ project_form.tech_stack.errors.0 }}</p>
-                            {% endif %}
-                        </label>
-
-                        <label class="flex flex-col">
-                            <p class="text-panafrican-black dark:text-background-light text-sm font-medium pb-2">
-                                Live Demo URL (Optional)</p>
-                            {{ project_form.live_demo_url }}
-                            {% if project_form.live_demo_url.errors %}
-                            <p class="text-red-600 text-xs mt-1">{{ project_form.live_demo_url.errors.0 }}</p>
+                            <p class="text-red-600 text-xs sm:text-sm mt-1">{{ project_form.tech_stack.errors.0 }}</p>
                             {% endif %}
                         </label>
                     </div>
-
-                    {{ project_form.id }}
-                    {{ project_form.DELETE }}
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
 
         <hr class="border-border-color/50 dark:border-panafrican-yellow/20" />
 
-        <div class="flex items-center justify-end gap-4 pt-4">
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-3 sm:gap-4 pt-4">
             <a href="{% url 'explore-creators' %}"
-                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-transparent text-red-600 dark:text-red-400 text-base font-bold leading-normal tracking-[0.015em] hover:bg-red-50 dark:hover:bg-red-900/20 border-2 border-red-600 dark:border-red-400 shadow-sm hover:shadow-md transition-all">
+                class="flex min-h-[48px] sm:min-w-[84px] sm:max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg px-6 py-3 sm:py-0 sm:h-12 bg-transparent text-red-600 dark:text-red-400 text-sm sm:text-base font-bold leading-normal tracking-[0.015em] hover:bg-red-50 dark:hover:bg-red-900/20 border-2 border-red-600 dark:border-red-400 shadow-sm hover:shadow-md transition-all">
                 <span class="truncate">Cancel</span>
             </a>
             <button type="submit"
-                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-panafrican-green text-primary-black text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 dark:bg-panafrican-yellow dark:text-panafrican-black shadow-md hover:shadow-lg transition-all">
+                class="flex min-h-[48px] sm:min-w-[84px] sm:max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg px-8 py-3 sm:py-0 sm:h-12 bg-panafrican-green text-white text-sm sm:text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 dark:bg-panafrican-yellow dark:text-panafrican-black shadow-md hover:shadow-lg transition-all">
                 <span class="truncate">Submit Creator & Projects</span>
             </button>
         </div>

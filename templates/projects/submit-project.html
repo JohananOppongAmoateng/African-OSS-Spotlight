@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-<main class="flex flex-col gap-8 px-4 py-8 md:py-12">
+<main class="flex flex-col gap-8 px-4 py-8 md:py-12 max-w-5xl mx-auto">
     <div class="flex flex-wrap justify-between gap-4">
         <div class="flex flex-col gap-3">
             <p
-                class="text-panafrican-black dark:text-background-light text-4xl font-black leading-tight tracking-[-0.033em]">
-                Submit a New Project</p>
-            <p class="text-text-subtle dark:text-text-subtle text-base font-normal leading-normal max-w-2xl">
-                Add a new open-source project to an existing creator's profile. All submissions require admin
-                verification before appearing publicly.
+                class="text-panafrican-black dark:text-background-light text-2xl sm:text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">
+                Submit a Project</p>
+            <p class="text-text-subtle dark:text-text-subtle text-sm sm:text-base font-normal leading-normal max-w-2xl">
+                Share your amazing open-source project with the African tech community! All submissions require admin
+                verification.
             </p>
         </div>
     </div>
@@ -33,16 +33,18 @@
 
         <div class="flex flex-col gap-3">
             <h2
-                class="text-panafrican-black dark:text-background-light text-xl font-bold leading-tight tracking-[-0.015em]">
-                Creator Selection</h2>
+                class="text-panafrican-black dark:text-background-light text-lg sm:text-xl font-bold leading-tight tracking-[-0.015em]">
+                Creator</h2>
             <label class="flex flex-col min-w-40 w-full">
-                <p class="text-panafrican-black dark:text-background-light text-base font-medium leading-normal pb-2">
-                    {{ form.creator.label }}</p>
+                <p
+                    class="text-panafrican-black dark:text-background-light text-sm sm:text-base font-medium leading-normal pb-2">
+                    Select Creator <span class="text-red-600">*</span></p>
                 {{ form.creator }}
                 {% if form.creator.errors %}
-                <p class="text-red-600 text-sm mt-1">{{ form.creator.errors.0 }}</p>
+                <p class="text-red-600 text-xs sm:text-sm mt-1">{{ form.creator.errors.0 }}</p>
+                {% else %}
+                <p class="text-text-subtle text-xs sm:text-sm mt-1">Select the creator who owns this project</p>
                 {% endif %}
-                <p class="text-text-subtle text-sm mt-1">Select the creator who owns this project</p>
             </label>
         </div>
 
@@ -50,78 +52,73 @@
 
         <div class="flex flex-col gap-6">
             <h2
-                class="text-panafrican-black dark:text-background-light text-xl font-bold leading-tight tracking-[-0.015em]">
+                class="text-panafrican-black dark:text-background-light text-lg sm:text-xl font-bold leading-tight tracking-[-0.015em]">
                 Project Details</h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 <label class="flex flex-col min-w-40 flex-1">
                     <p
-                        class="text-panafrican-black dark:text-background-light text-base font-medium leading-normal pb-2">
-                        {{ form.name.label }}</p>
+                        class="text-panafrican-black dark:text-background-light text-sm sm:text-base font-medium leading-normal pb-2">
+                        Project Name <span class="text-red-600">*</span></p>
                     {{ form.name }}
                     {% if form.name.errors %}
-                    <p class="text-red-600 text-sm mt-1">{{ form.name.errors.0 }}</p>
+                    <p class="text-red-600 text-xs sm:text-sm mt-1">{{ form.name.errors.0 }}</p>
                     {% endif %}
                 </label>
 
                 <label class="flex flex-col min-w-40 flex-1">
                     <p
-                        class="text-panafrican-black dark:text-background-light text-base font-medium leading-normal pb-2">
-                        {{ form.repository_url.label }}</p>
+                        class="text-panafrican-black dark:text-background-light text-sm sm:text-base font-medium leading-normal pb-2">
+                        Repository URL <span class="text-red-600">*</span></p>
                     {{ form.repository_url }}
                     {% if form.repository_url.errors %}
-                    <p class="text-red-600 text-sm mt-1">{{ form.repository_url.errors.0 }}</p>
+                    <p class="text-red-600 text-xs sm:text-sm mt-1">{{ form.repository_url.errors.0 }}</p>
                     {% endif %}
                 </label>
             </div>
 
             <label class="flex flex-col min-w-40 w-full">
-                <p class="text-panafrican-black dark:text-background-light text-base font-medium leading-normal pb-2">
-                    {{ form.about.label }}</p>
+                <p
+                    class="text-panafrican-black dark:text-background-light text-sm sm:text-base font-medium leading-normal pb-2">
+                    About <span class="text-red-600">*</span></p>
                 {{ form.about }}
                 {% if form.about.errors %}
-                <p class="text-red-600 text-sm mt-1">{{ form.about.errors.0 }}</p>
+                <p class="text-red-600 text-xs sm:text-sm mt-1">{{ form.about.errors.0 }}</p>
                 {% endif %}
             </label>
 
             <label class="flex flex-col min-w-40 w-full">
-                <p class="text-panafrican-black dark:text-background-light text-base font-medium leading-normal pb-2">
-                    {{ form.description.label }}</p>
+                <p
+                    class="text-panafrican-black dark:text-background-light text-sm sm:text-base font-medium leading-normal pb-2">
+                    Description <span class="text-red-600">*</span></p>
                 {{ form.description }}
                 {% if form.description.errors %}
-                <p class="text-red-600 text-sm mt-1">{{ form.description.errors.0 }}</p>
+                <p class="text-red-600 text-xs sm:text-sm mt-1">{{ form.description.errors.0 }}</p>
                 {% endif %}
             </label>
 
             <label class="flex flex-col min-w-40 w-full">
-                <p class="text-panafrican-black dark:text-background-light text-base font-medium leading-normal pb-2">
-                    {{ form.tech_stack.label }}</p>
+                <p
+                    class="text-panafrican-black dark:text-background-light text-sm sm:text-base font-medium leading-normal pb-2">
+                    Tech Stack <span class="text-red-600">*</span></p>
                 {{ form.tech_stack }}
                 {% if form.tech_stack.errors %}
-                <p class="text-red-600 text-sm mt-1">{{ form.tech_stack.errors.0 }}</p>
+                <p class="text-red-600 text-xs sm:text-sm mt-1">{{ form.tech_stack.errors.0 }}</p>
                 {% endif %}
-                <p class="text-text-subtle text-sm mt-1">Comma-separated list of technologies</p>
-            </label>
-
-            <label class="flex flex-col min-w-40 w-full">
-                <p class="text-panafrican-black dark:text-background-light text-base font-medium leading-normal pb-2">
-                    {{ form.live_demo_url.label }}</p>
-                {{ form.live_demo_url }}
-                {% if form.live_demo_url.errors %}
-                <p class="text-red-600 text-sm mt-1">{{ form.live_demo_url.errors.0 }}</p>
-                {% endif %}
+                <p class="text-text-subtle text-xs sm:text-sm mt-1">Comma-separated (e.g., Python, Django, PostgreSQL)
+                </p>
             </label>
         </div>
 
         <hr class="border-border-color/50 dark:border-panafrican-yellow/20" />
 
-        <div class="flex items-center justify-end gap-4 pt-4">
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-3 sm:gap-4 pt-4">
             <a href="{% url 'explore-projects' %}"
-                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-transparent text-red-600 dark:text-red-400 text-base font-bold leading-normal tracking-[0.015em] hover:bg-red-50 dark:hover:bg-red-900/20 border-2 border-red-600 dark:border-red-400 shadow-sm hover:shadow-md transition-all">
+                class="flex min-h-[48px] sm:min-w-[84px] sm:max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg px-6 py-3 sm:py-0 sm:h-12 bg-transparent text-red-600 dark:text-red-400 text-sm sm:text-base font-bold leading-normal tracking-[0.015em] hover:bg-red-50 dark:hover:bg-red-900/20 border-2 border-red-600 dark:border-red-400 shadow-sm hover:shadow-md transition-all">
                 <span class="truncate">Cancel</span>
             </a>
             <button type="submit"
-                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-panafrican-green text-white text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 dark:bg-panafrican-yellow dark:text-panafrican-black">
+                class="flex min-h-[48px] sm:min-w-[84px] sm:max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg px-8 py-3 sm:py-0 sm:h-12 bg-panafrican-green text-white text-sm sm:text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 dark:bg-panafrican-yellow dark:text-panafrican-black shadow-md hover:shadow-lg transition-all">
                 <span class="truncate">Submit Project</span>
             </button>
         </div>

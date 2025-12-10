@@ -41,20 +41,20 @@
         </div>
 
         <!-- Call to Action Buttons -->
-        <div class="flex flex-col sm:flex-row items-center gap-4 mt-6">
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mt-6 w-full sm:w-auto">
             <a href="{% url 'home' %}"
-                class="flex min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-panafrican-green text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-panafrican-green/90 dark:bg-panafrican-yellow dark:text-panafrican-black dark:hover:bg-panafrican-yellow/90 shadow-md hover:shadow-lg transition-all">
+                class="flex min-h-[48px] sm:min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-lg px-8 py-3 sm:py-0 sm:h-12 bg-panafrican-green text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-panafrican-green/90 dark:bg-panafrican-yellow dark:text-panafrican-black dark:hover:bg-panafrican-yellow/90 shadow-md hover:shadow-lg transition-all">
                 <span class="truncate">Back to Home</span>
             </a>
 
             {% if item_type == 'creator' %}
             <a href="{% url 'submit-creator' %}"
-                class="flex min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-white dark:bg-neutral-800 border-2 border-panafrican-green dark:border-panafrican-yellow text-panafrican-green dark:text-panafrican-yellow text-base font-bold leading-normal tracking-[0.015em] hover:bg-panafrican-green/10 dark:hover:bg-panafrican-yellow/10 shadow-sm hover:shadow-md transition-all">
+                class="flex min-h-[48px] sm:min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-lg px-8 py-3 sm:py-0 sm:h-12 bg-white dark:bg-neutral-800 border-2 border-panafrican-green dark:border-panafrican-yellow text-panafrican-green dark:text-panafrican-yellow text-base font-bold leading-normal tracking-[0.015em] hover:bg-panafrican-green/10 dark:hover:bg-panafrican-yellow/10 shadow-sm hover:shadow-md transition-all">
                 <span class="truncate">Nominate Another Creator</span>
             </a>
             {% elif item_type == 'project' %}
             <a href="{% url 'submit-project' %}"
-                class="flex min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-white dark:bg-neutral-800 border-2 border-panafrican-green dark:border-panafrican-yellow text-panafrican-green dark:text-panafrican-yellow text-base font-bold leading-normal tracking-[0.015em] hover:bg-panafrican-green/10 dark:hover:bg-panafrican-yellow/10 shadow-sm hover:shadow-md transition-all">
+                class="flex min-h-[48px] sm:min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-lg px-8 py-3 sm:py-0 sm:h-12 bg-white dark:bg-neutral-800 border-2 border-panafrican-green dark:border-panafrican-yellow text-panafrican-green dark:text-panafrican-yellow text-base font-bold leading-normal tracking-[0.015em] hover:bg-panafrican-green/10 dark:hover:bg-panafrican-yellow/10 shadow-sm hover:shadow-md transition-all">
                 <span class="truncate">Submit Another Project</span>
             </a>
             {% endif %}
