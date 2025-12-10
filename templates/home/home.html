@@ -1,0 +1,292 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="w-full">
+    <div class="flex flex-col gap-10 px-4 py-16 text-center items-center @[864px]:py-24">
+        <div class="flex flex-col gap-6 @[480px]:gap-8 max-w-2xl">
+            <div class="flex flex-col gap-2">
+                <h1
+                    class="text-text-light dark:text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
+                    Shining a Spotlight on Africa's Open-Source Talent.</h1>
+                <h2
+                    class="text-text-muted-light dark:text-text-muted-dark text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                    Discover, connect with, and support the creators building the future of software, right here on the
+                    continent.</h2>
+            </div>
+            <div class="flex items-center justify-center gap-4">
+                <a
+                href="/creators/nominate"
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary-green text-white text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
+                    <span class="truncate">Submit Your Profile</span>
+                </a>
+                <a
+                href="/creators"
+                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-transparent text-text-light dark:text-text-dark border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors">
+                    <span class="truncate">Explore Creators</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="flex flex-col gap-16 py-16 px-4 md:px-10 lg:px-20">
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center" id="about">
+        <div class="flex flex-col gap-4">
+            <h2 class="text-3xl font-bold tracking-tight text-text-light dark:text-white">About African OSS Spotlight
+            </h2>
+            <p class="text-text-muted-light dark:text-text-muted-dark leading-relaxed">African OSS Spotlight is a
+                community-driven initiative dedicated to increasing the visibility of open-source creators from across
+                the African continent. Our mission is to build a comprehensive, public directory that showcases the
+                incredible talent, innovative projects, and vibrant communities shaping the future of technology.</p>
+            <p class="text-text-muted-light dark:text-text-muted-dark leading-relaxed">We believe that by highlighting
+                these contributions, we can foster collaboration, inspire the next generation of developers, and connect
+                African creators with global opportunities.</p>
+        </div>
+        <div class="relative h-64 md:h-80 w-full rounded-lg"
+            data-alt="An abstract visualization of code contributions across a map of Africa.">
+            <div class="absolute inset-0 pattern-bg rounded-lg"></div>
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-primary-red/20 via-primary-yellow/20 to-primary-green/20 dark:from-primary-red/10 dark:via-primary-yellow/10 dark:to-primary-green/10 rounded-lg">
+            </div>
+            <div
+                class="relative w-full h-full flex items-center justify-center p-8 text-primary-yellow dark:text-primary-yellow opacity-40">
+                <svg fill="currentColor" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M100 0L121.2 60.1L180.9 69.1L130.5 106.9L142.5 166.7L100 135.5L57.5 166.7L69.5 106.9L19.1 69.1L78.8 60.1L100 0Z"
+                        opacity="0.1"></path>
+                    <path
+                        d="M100 50 C 127.6 50, 150 72.4, 150 100 C 150 127.6, 127.6 150, 100 150 C 72.4 150, 50 127.6, 50 100 C 50 72.4, 72.4 50, 100 50 Z M 100 60 C 77.9 60, 60 77.9, 60 100 C 60 122.1, 77.9 140, 100 140 C 122.1 140, 140 122.1, 140 100 C 140 77.9, 122.1 60, 100 60 Z">
+                    </path>
+                    <circle cx="100" cy="100" r="5"></circle>
+                    <circle cx="120" cy="80" r="3"></circle>
+                    <circle cx="85" cy="75" r="4"></circle>
+                    <circle cx="70" cy="110" r="3"></circle>
+                    <circle cx="115" cy="125" r="4"></circle>
+                    <circle cx="135" cy="110" r="2"></circle>
+                </svg>
+            </div>
+        </div>
+    </section>
+    <section class="bg-neutral-100 dark:bg-primary-black/20 py-12 rounded-lg" id="stats">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold tracking-tight text-center text-text-light dark:text-white mb-8">Community
+                Stats</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+                <div class="flex flex-col items-center">
+                    <span class="material-symbols-outlined text-4xl text-primary-red mb-2">group</span>
+                    <p class="text-4xl font-bold text-text-light dark:text-white">1,200+</p>
+                    <p class="text-text-muted-light dark:text-text-muted-dark">Creators</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="material-symbols-outlined text-4xl text-primary-green mb-2">code_blocks</span>
+                    <p class="text-4xl font-bold text-text-light dark:text-white">3,500+</p>
+                    <p class="text-text-muted-light dark:text-text-muted-dark">Projects</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <span class="material-symbols-outlined text-4xl text-primary-yellow mb-2">public</span>
+                    <p class="text-4xl font-bold text-text-light dark:text-white">35+</p>
+                    <p class="text-text-muted-light dark:text-text-muted-dark">Countries</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% if creators %}
+    <section id="trending-creators">
+        <div class="flex flex-col gap-4 mb-8 max-w-2xl mx-auto text-center">
+            <h2 class="text-3xl font-bold tracking-tight text-text-light dark:text-white">Trending Creators</h2>
+            <p class="text-text-muted-light dark:text-text-muted-dark leading-relaxed">Meet the developers making waves
+                in the open-source community this month.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {% for creator in creators %}
+            <a href="{% url 'creator_detail' creator.id %}"
+                class="flex flex-col gap-6 p-8 min-h-[200px] border border-neutral-200 dark:border-neutral-800 rounded-lg bg-white dark:bg-background-dark">
+                <div class="flex items-center gap-4">
+                
+                    {% if creator.image %}
+                    <img src="{{ creator.image.url }}" alt="Avatar of {{ creator.name }}"
+                        class="w-16 h-16 rounded-full border-2 border-primary-green/50 object-cover" />
+                    {% else %}
+                    <div class="w-16 h-16 rounded-full border-2 border-primary-green/50 bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-base font-bold text-text-light dark:text-white">
+                        {{ creator.name|slice:":1"|upper }}
+                    </div>
+                    {% endif %}
+                    <div>
+                        <p class="font-bold text-text-light dark:text-white">{{ creator.name }}</p>
+                        <p class="text-sm text-text-muted-light dark:text-text-muted-dark">{{ creator.country }}</p>
+                    </div>
+                </div>
+                <p class="text-sm text-text-muted-light dark:text-text-muted-dark">{{ creator.bio|truncatechars:140 }}</p>
+                <div class="mt-3 flex items-center justify-between text-xs text-text-muted-light dark:text-text-muted-dark w-full">
+                    <span class="truncate">Tech: {{ creator.tech_stack }}</span>
+                    <span class="flex items-center gap-1"><span class="material-symbols-outlined !text-sm">group</span>{{ creator.followers_count }}</span>
+                </div>
+            </a>
+             {% endfor %}
+        </div>
+       
+    </section>
+    {% endif %}
+    {% if projects %}
+    <section id="trending-projects">
+        <div class="flex flex-col gap-4 mb-8 max-w-2xl mx-auto text-center">
+            
+            <h2 class="text-3xl font-bold tracking-tight text-text-light dark:text-white">Trending Projects</h2>
+            <p class="text-text-muted-light dark:text-text-muted-dark leading-relaxed">Discover the open-source projects
+                generating buzz and contributions.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {% for project in projects %}
+            <a href="{% url 'project_detail' project.id %}"
+                class="flex flex-col gap-4 p-8 min-h-[200px] border border-neutral-200 dark:border-neutral-800 rounded-lg bg-white dark:bg-background-dark">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-12 h-12 rounded-md bg-primary-red/10 flex items-center justify-center text-primary-red">
+                        <span class="material-symbols-outlined">build_circle</span></div>
+                    <h3 class="font-bold text-lg md:text-xl text-text-light dark:text-white">{{ project.name }}</h3>
+                </div>
+                <p class="text-sm text-text-muted-light dark:text-text-muted-dark">{{ project.about }}</p>
+                <div
+                    class="text-xs flex items-center gap-4 text-text-muted-light dark:text-text-muted-dark mt-auto pt-2">
+                    <span class="flex items-center gap-1"><span class="material-symbols-outlined !text-sm">star</span>
+                        2.1k</span>
+                    <span class="flex items-center gap-1"><span
+                            class="material-symbols-outlined !text-sm">account_tree</span> 150</span>
+                    <span class="flex items-center gap-1"><span class="material-symbols-outlined !text-sm">commit</span>
+                        890</span>
+                </div>
+            </a>
+            {% endfor %}
+
+        </div>
+    </section>
+    {% endif %}
+
+    <section class="text-center" id="how-it-works">
+        <div class="flex flex-col gap-4 mb-12 max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold tracking-tight text-text-light dark:text-white">How It Works</h2>
+            <p class="text-text-muted-light dark:text-text-muted-dark leading-relaxed">Getting featured is simple. We
+                want to make it as easy as possible for creators to join the directory and for the community to discover
+                them.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="flex flex-col items-center gap-4 p-6 bg-neutral-100 dark:bg-primary-black/20 rounded-lg">
+                <div
+                    class="flex items-center justify-center w-16 h-16 rounded-full bg-primary-yellow text-primary-black">
+                    <span class="material-symbols-outlined text-3xl">edit_document</span>
+                </div>
+                <h3 class="text-xl font-bold mt-2">1. Submit Your Profile</h3>
+                <p class="text-text-muted-light dark:text-text-muted-dark text-sm leading-relaxed">Fill out a quick form
+                    with your details, including your name, location, social links (GitHub, Twitter, etc.), and a brief
+                    bio.</p>
+            </div>
+            <div class="flex flex-col items-center gap-4 p-6 bg-neutral-100 dark:bg-primary-black/20 rounded-lg">
+                <div class="flex items-center justify-center w-16 h-16 rounded-full bg-primary-red text-white">
+                    <span class="material-symbols-outlined text-3xl">approval_delegation</span>
+                </div>
+                <h3 class="text-xl font-bold mt-2">2. We Review &amp; Verify</h3>
+                <p class="text-text-muted-light dark:text-text-muted-dark text-sm leading-relaxed">Our team reviews each
+                    submission to ensure it meets our community guidelines and verifies the open-source contributions.
+                </p>
+            </div>
+            <div class="flex flex-col items-center gap-4 p-6 bg-neutral-100 dark:bg-primary-black/20 rounded-lg">
+                <div class="flex items-center justify-center w-16 h-16 rounded-full bg-primary-green text-white">
+                    <span class="material-symbols-outlined text-3xl">celebration</span>
+                </div>
+                <h3 class="text-xl font-bold mt-2">3. Get Discovered!</h3>
+                <p class="text-text-muted-light dark:text-text-muted-dark text-sm leading-relaxed">Once approved, your
+                    profile goes live! You'll be featured in our directory, visible to a global audience of peers and
+                    potential collaborators.</p>
+            </div>
+        </div>
+    </section>
+    <section class="bg-primary-black text-white p-12 rounded-lg text-center" id="cta">
+        <div class="max-w-2xl mx-auto flex flex-col items-center gap-6">
+            <h2 class="text-3xl font-bold">Ready to Join the Spotlight?</h2>
+            <p class="text-white/80 leading-relaxed">Are you an African open-source creator? Submit your profile today
+                to be featured in our directory. Help us grow the community and showcase the amazing work being done
+                across the continent.</p>
+            <a href="/creators/nominate"
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary-yellow text-primary-black text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity"><span
+                    class="truncate">Submit Your Profile Now</span></a>
+        </div>
+    </section>
+    <section id="testimonials">
+        <div class="flex flex-col gap-4 mb-12 max-w-2xl mx-auto text-center">
+            <h2 class="text-3xl font-bold tracking-tight text-text-light dark:text-white">Community Voices</h2>
+            <p class="text-text-muted-light dark:text-text-muted-dark leading-relaxed">See what others are saying about
+                the initiative.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div
+                class="flex flex-col gap-4 p-6 border border-neutral-200 dark:border-neutral-800 rounded-lg bg-white dark:bg-primary-black/20">
+                <p class="text-text-muted-light dark:text-text-muted-dark leading-relaxed">"This is such a needed
+                    platform! Finally, a central place to discover the amazing open-source talent from Africa. Can't
+                    wait to see it grow."</p>
+                <div class="flex items-center gap-4 mt-2">
+                    <div class="w-12 h-12 rounded-full border-2 border-primary-yellow/50 bg-primary-yellow/20 flex items-center justify-center text-primary-yellow font-bold text-lg"
+                        data-alt="Symbolic avatar for a community member">SC</div>
+                    <div>
+                        <p class="font-bold text-text-light dark:text-white">Samuel Chen</p>
+                        <p class="text-sm text-text-muted-light dark:text-text-muted-dark">OSS Contributor</p>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="flex flex-col gap-4 p-6 border border-neutral-200 dark:border-neutral-800 rounded-lg bg-white dark:bg-primary-black/20">
+                <p class="text-text-muted-light dark:text-text-muted-dark leading-relaxed">"As a developer in Nairobi,
+                    I'm excited to connect with others on the continent. African OSS Spotlight is a fantastic bridge for
+                    collaboration."</p>
+                <div class="flex items-center gap-4 mt-2">
+                    <div class="w-12 h-12 rounded-full border-2 border-primary-green/50 bg-primary-green/20 flex items-center justify-center text-primary-green font-bold text-lg"
+                        data-alt="Symbolic avatar for another community member">NW</div>
+                    <div>
+                        <p class="font-bold text-text-light dark:text-white">Nia Wanjiru</p>
+                        <p class="text-sm text-text-muted-light dark:text-text-muted-dark">Software Engineer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="faq">
+        <div class="flex flex-col gap-4 mb-12 max-w-2xl mx-auto text-center">
+            <h2 class="text-3xl font-bold tracking-tight text-text-light dark:text-white">Frequently Asked Questions
+            </h2>
+        </div>
+        <div class="max-w-3xl mx-auto flex flex-col gap-4">
+            <details class="group border-b border-neutral-200 dark:border-neutral-800 pb-4">
+                <summary class="flex items-center justify-between cursor-pointer list-none">
+                    <span class="font-medium text-text-light dark:text-white">Who is eligible to be featured?</span>
+                    <span
+                        class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <p class="mt-2 text-text-muted-light dark:text-text-muted-dark leading-relaxed">Any open-source creator
+                    of African descent, whether living on the continent or in the diaspora, is eligible. The key is
+                    active contribution to open-source projects.</p>
+            </details>
+            <details class="group border-b border-neutral-200 dark:border-neutral-800 pb-4">
+                <summary class="flex items-center justify-between cursor-pointer list-none">
+                    <span class="font-medium text-text-light dark:text-white">Is there a cost to be listed?</span>
+                    <span
+                        class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <p class="mt-2 text-text-muted-light dark:text-text-muted-dark leading-relaxed">No, absolutely not. This
+                    is a free, community-driven platform. There will never be a charge to be featured in the directory.
+                </p>
+            </details>
+            <details class="group border-b border-neutral-200 dark:border-neutral-800 pb-4">
+                <summary class="flex items-center justify-between cursor-pointer list-none">
+                    <span class="font-medium text-text-light dark:text-white">How can I support the project?</span>
+                    <span
+                        class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                </summary>
+                <p class="mt-2 text-text-muted-light dark:text-text-muted-dark leading-relaxed">
+                    The best way to support us is by spreading the word! Share the site with your network and encourage
+                    creators to submit their profiles. You can also contribute to our project on GitHub—or support us
+                    through GitHub Sponsors to help cover infrastructure costs and keep the platform running.
+                </p>
+            </details>
+        </div>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block content %}
+
+<main class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+    <div class="flex flex-col gap-6">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+            <h1 class="text-2xl font-bold text-neutral-900 dark:text-white">Explore Creators</h1>
+            <p class="text-neutral-500 dark:text-neutral-400 text-sm font-normal">Showing {{ page_obj.paginator.count }}
+                Creators</p>
+        </div>
+
+        <!-- Search Bar -->
+        <form method="get" action="{% url 'explore-creators' %}" class="w-full">
+            <div
+                class="flex w-full items-stretch rounded-lg h-14 border border-border-color dark:border-panafrican-black/50 bg-white dark:bg-panafrican-black/30 overflow-hidden shadow-sm">
+                <div class="text-text-subtle dark:text-panafrican-yellow flex items-center justify-center pl-4">
+                    <span class="material-symbols-outlined">search</span>
+                </div>
+                <input type="text" name="q" value="{{ search_query }}"
+                    placeholder="Search creators by name, country, skills, or job title..."
+                    class="flex w-full min-w-0 flex-1 bg-transparent text-text-main dark:text-background-light focus:outline-0 px-4 text-base font-normal leading-normal" />
+                {% if search_query %}
+                <a href="{% url 'explore-creators' %}"
+                    class="flex items-center justify-center px-4 text-text-subtle hover:text-panafrican-green dark:hover:text-panafrican-yellow transition-colors">
+                    <span class="material-symbols-outlined">close</span>
+                </a>
+                {% endif %}
+                <button type="submit"
+                    class="px-6 bg-panafrican-green hover:bg-panafrican-green/90 dark:bg-panafrican-yellow dark:hover:bg-panafrican-yellow/90 text-white dark:text-panafrican-black font-bold transition-all shadow-md">
+                    Search
+                </button>
+            </div>
+        </form>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-6">
+            {% for creator in page_obj %}
+            <a href="{% url 'creator_detail' creator.id %}"
+                class="flex flex-col gap-4 p-5 bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200/80 dark:border-neutral-800/80 hover:border-panafrican-green dark:hover:border-panafrican-yellow transition-colors">
+                <div class="flex items-center gap-4">
+                    {% if creator.image %}
+                    <img class="size-12 rounded-full object-cover border-2 border-border-light dark:border-border-dark"
+                        alt="Photo of {{ creator.name }}" src="{{ creator.image.url }}">
+                    {% else %}
+                    <div
+                        class="size-12 rounded-full border-2 border-border-light dark:border-border-dark bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-sm font-bold text-text-light dark:text-text-dark">
+                        {{ creator.name|slice:':1'|upper }}
+                    </div>
+                    {% endif %}
+                    <div class="flex flex-col">
+                        <h3 class="font-bold text-neutral-900 dark:text-white">{{ creator.name }}</h3>
+                        <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ creator.job_title }}</p>
+                    </div>
+                </div>
+                <p class="text-sm text-neutral-600 dark:text-neutral-300">{{ creator.bio|truncatechars:120 }}</p>
+            </a>
+            {% empty %}
+            <div class="col-span-full text-center py-12">
+                <p class="text-neutral-500 dark:text-neutral-400">No creators found.</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        {% if page_obj.has_other_pages %}
+        <nav class="flex items-center justify-between pt-6 border-t border-neutral-200 dark:border-neutral-600/20">
+            {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}{% if search_query %}&q={{ search_query }}{% endif %}"
+                class="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-neutral-200 dark:border-neutral-600/20 hover:bg-neutral-100 dark:hover:bg-neutral-900/40">
+                <span class="material-symbols-outlined text-lg">arrow_back</span>
+                Previous
+            </a>
+            {% else %}
+            <div></div>
+            {% endif %}
+
+            <div class="hidden md:flex items-center gap-2">
+                {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                <span class="px-3 py-1 rounded-md bg-panafrican-yellow dark:bg-panafrican-green text-sm font-medium">{{
+                    num }}</span>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %} <a
+                    class="px-3 py-1 rounded-md text-sm hover:bg-neutral-100 dark:hover:bg-neutral-900/40"
+                    href="?page={{ num }}{% if search_query %}&q={{ search_query }}{% endif %}">{{ num }}</a>
+                    {% endif %}
+                    {% endfor %}
+            </div>
+
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}{% if search_query %}&q={{ search_query }}{% endif %}"
+                class="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-neutral-200 dark:border-neutral-600/20 hover:bg-neutral-100 dark:hover:bg-neutral-900/40">
+                Next
+                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+            </a>
+            {% else %}
+            <div></div>
+            {% endif %}
+        </nav>
+        {% endif %}
+        <!-- End Pagination -->
+    </div>
+</main>
+
+{% endblock %}

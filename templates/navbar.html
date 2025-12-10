@@ -1,0 +1,26 @@
+<header
+    class="sticky top-0 z-20 flex items-center justify-between whitespace-nowrap border-b border-neutral-200/80 dark:border-neutral-800/80 px-4 sm:px-6 lg:px-10 py-3 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-sm">
+    <div class="flex items-center gap-8">
+        <div class="flex items-center gap-3 text-primary-black dark:text-white">
+            <h2 class="text-lg font-bold tracking-[-0.015em]">African OSS Spotlight</h2>
+        </div>
+        <nav class="hidden md:flex items-center gap-8">
+            <a class="text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-panafrican-green dark:hover:text-panafrican-yellow transition-colors"
+                href="{% url 'home' %}">Home</a>
+            <a class="text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-panafrican-green dark:hover:text-panafrican-yellow transition-colors"
+                href="{% url 'explore-creators' %}">Creators</a>
+            <a class="text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-panafrican-green dark:hover:text-panafrican-yellow transition-colors"
+                href="{% url 'explore-projects' %}">Projects</a>
+        </nav>
+    </div>
+    <div class="flex gap-3">
+        <a href="{% url 'submit-creator' %}"
+            class="flex items-center justify-center rounded-lg px-4 py-2 text-sm font-bold bg-panafrican-green hover:bg-panafrican-green/90 text-white dark:bg-panafrican-yellow dark:text-panafrican-black dark:hover:bg-panafrican-yellow/90 transition-all shadow-sm hover:shadow-md">
+            <span>Nominate Creator</span>
+        </a>
+        <a href="{% url 'submit-project' %}"
+            class="flex items-center justify-center rounded-lg px-4 py-2 text-sm font-bold border-2 border-panafrican-green text-panafrican-green hover:bg-panafrican-green/10 dark:border-panafrican-yellow dark:text-panafrican-yellow dark:hover:bg-panafrican-yellow/10 transition-all">
+            <span>Submit Project</span>
+        </a>
+    </div>
+</header>

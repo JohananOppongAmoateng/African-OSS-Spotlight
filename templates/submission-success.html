@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="flex flex-col items-center justify-center gap-8 px-4 py-16 md:py-24 max-w-3xl mx-auto text-center">
+    <div class="flex flex-col items-center gap-6">
+        <!-- Success Icon -->
+        <div
+            class="w-20 h-20 rounded-full bg-panafrican-green/10 dark:bg-panafrican-yellow/10 flex items-center justify-center">
+            <span
+                class="material-symbols-outlined text-5xl text-panafrican-green dark:text-panafrican-yellow">check_circle</span>
+        </div>
+
+        <!-- Success Message -->
+        <div class="flex flex-col gap-3">
+            <h1
+                class="text-panafrican-black dark:text-background-light text-4xl font-black leading-tight tracking-[-0.033em]">
+                {% if item_type == 'creator' %}
+                Creator Nominated Successfully!
+                {% elif item_type == 'project' %}
+                Project Submitted Successfully!
+                {% else %}
+                Submission Successful!
+                {% endif %}
+            </h1>
+            <p class="text-text-subtle dark:text-text-subtle text-lg font-normal leading-normal max-w-2xl">
+                Thank you for contributing to African OSS Spotlight! Your submission is now pending admin verification.
+            </p>
+        </div>
+
+        <!-- What Happens Next -->
+        <div
+            class="w-full mt-4 p-6 rounded-lg bg-white dark:bg-panafrican-black/30 border border-border-color dark:border-panafrican-yellow/20 text-left shadow-sm">
+            <h2 class="text-panafrican-black dark:text-background-light text-xl font-bold mb-4">What happens next?</h2>
+            <ol class="list-decimal list-inside space-y-3 text-text-main dark:text-background-light">
+                <li>Our admin team will review your submission</li>
+                <li>We'll verify the information and check for quality</li>
+                <li>Once approved, it will appear publicly on the platform</li>
+                <li>The community can then discover and engage with
+                    {% if item_type == 'creator' %}the creator{% else %}the project{% endif %}
+                </li>
+            </ol>
+        </div>
+
+        <!-- Call to Action Buttons -->
+        <div class="flex flex-col sm:flex-row items-center gap-4 mt-6">
+            <a href="{% url 'home' %}"
+                class="flex min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-panafrican-green text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-panafrican-green/90 dark:bg-panafrican-yellow dark:text-panafrican-black dark:hover:bg-panafrican-yellow/90 shadow-md hover:shadow-lg transition-all">
+                <span class="truncate">Back to Home</span>
+            </a>
+
+            {% if item_type == 'creator' %}
+            <a href="{% url 'submit-creator' %}"
+                class="flex min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-white dark:bg-neutral-800 border-2 border-panafrican-green dark:border-panafrican-yellow text-panafrican-green dark:text-panafrican-yellow text-base font-bold leading-normal tracking-[0.015em] hover:bg-panafrican-green/10 dark:hover:bg-panafrican-yellow/10 shadow-sm hover:shadow-md transition-all">
+                <span class="truncate">Nominate Another Creator</span>
+            </a>
+            {% elif item_type == 'project' %}
+            <a href="{% url 'submit-project' %}"
+                class="flex min-w-[160px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-white dark:bg-neutral-800 border-2 border-panafrican-green dark:border-panafrican-yellow text-panafrican-green dark:text-panafrican-yellow text-base font-bold leading-normal tracking-[0.015em] hover:bg-panafrican-green/10 dark:hover:bg-panafrican-yellow/10 shadow-sm hover:shadow-md transition-all">
+                <span class="truncate">Submit Another Project</span>
+            </a>
+            {% endif %}
+        </div>
+
+        <!-- Additional Actions -->
+        <div class="mt-8 pt-8 border-t border-border-color/50 dark:border-panafrican-yellow/20 w-full">
+            <p class="text-text-subtle dark:text-text-subtle text-sm mb-4">Explore more:</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="{% url 'explore-creators' %}"
+                    class="text-panafrican-green dark:text-panafrican-yellow hover:underline font-medium text-base">
+                    Browse Creators
+                </a>
+                <span class="text-text-subtle">•</span>
+                <a href="{% url 'explore-projects' %}"
+                    class="text-panafrican-green dark:text-panafrican-yellow hover:underline font-medium text-base">
+                    Browse Projects
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
